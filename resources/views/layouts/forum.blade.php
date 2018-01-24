@@ -11,7 +11,8 @@
     <title>Portfolio forum</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/app.css">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -21,5 +22,8 @@
         @yield('content')
     </div>
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>
