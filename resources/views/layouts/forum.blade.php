@@ -11,7 +11,6 @@
     <title>Portfolio forum</title>
 
     <!-- Styles -->
-    <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <link rel="stylesheet" href="/css/app.css">
 
 </head>
