@@ -19,3 +19,7 @@ Route::prefix('/')->group(function(){
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
   });
+
+  Route::prefix('/admin')->group(function(){
+        Route::get('/home', 'AdminController@index');
+    });
