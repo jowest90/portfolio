@@ -18,4 +18,6 @@ Auth::routes();
 Route::prefix('/')->group(function(){
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index');
+    Route::post('/chat','ChatController@sendMessage');
+    Route::get('/chat','ChatController@chatPage');
   });
