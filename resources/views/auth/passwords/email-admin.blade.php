@@ -1,4 +1,4 @@
-@extends('layouts.forum')
+@extends('layouts.adminLayout')
 @section('content')
 <div class="loginBox" id = "login box">
   <div class="panel-body">
@@ -8,7 +8,7 @@
           </div>
       @endif
 
-      <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+      <form class="form-horizontal" method="POST" action="{{ route('admin.password.email') }}">
           {{ csrf_field() }}
 
           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -28,7 +28,7 @@
           <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                   <button type="submit" class="btn btn-primary">
-                      Send Password Reset Link
+                      Send ADMIN Password Reset Link
                   </button>
               </div>
           </div>
