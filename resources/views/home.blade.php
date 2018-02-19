@@ -4,24 +4,31 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="col-md-offset-5">Code of Conduct</div>
-                <div class="panel-heading"></div>
+          <div class="panel panel-default">
 
-                <div class="panel-body">
+    <div class="panel-heading"><b>Profile:</b> {{ Auth::user()->username }}
 
-                    News & announcements
-                </div>
-            </div>
+      <a href="<?php echo url('/profile/edit/'.Auth::user()->id); ?>">(edit)</a>
+    </div>
 
-            <div class="panel panel-default">
-                <div class="col-md-offset-5">General discussion</div>
-                <div class="panel-heading"></div>
+    <div class="panel-body">
+      <b>Name:</b> {{ Auth::user()->name }}<br>
+      <b>Email:</b> {{ Auth::user()->email }}<br>
+    </div>
+</div>
 
-                <div class="panel-body">
+<div class="panel panel-default">
+          <div class="panel-heading">Dashboard</div>
 
-                    Forums for general discussion
-                </div>
+              <div class="panel-body">
+                  @if (session('status'))
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
+                  @endif
+
+                  You are logged in as USER!
+              </div>
             </div>
         </div>
     </div>
