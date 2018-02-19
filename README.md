@@ -1,13 +1,3 @@
-<p align="center">My Portfolio</p>
-
-## About
-
-This portfolio contains projects that I'm working on:
-
-- User/admin authorization.
-- chat room.
-
-
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">

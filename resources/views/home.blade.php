@@ -1,35 +1,28 @@
-@extends('layouts.userLayout')
+@extends('layouts.forum')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-<<<<<<< HEAD
-          <div class="panel panel-default">
+            <div class="panel panel-default">
+                <div class="col-md-offset-5">Code of Conduct</div>
+                <div class="panel-heading"></div>
 
-    <div class="panel-heading"><b>Profile:</b> {{ Auth::user()->username }}
+                <div class="panel-body">
 
-      <a href="<?php echo url('/profile/edit/'.Auth::user()->id); ?>">(edit)</a>
-    </div>
+                    News & announcements
+                </div>
+            </div>
 
-    <div class="panel-body">
-      <b>Name:</b> {{ Auth::user()->name }}<br>
-      <b>Email:</b> {{ Auth::user()->email }}<br>
-    </div>
-</div>
-=======
-          <div class="panel-heading">Dashboard</div>
+            <div class="panel panel-default">
+                <div class="col-md-offset-5">General discussion</div>
+                <div class="panel-heading"></div>
 
-              <div class="panel-body">
-                  @if (session('status'))
-                      <div class="alert alert-success">
-                          {{ session('status') }}
-                      </div>
-                  @endif
+                <div class="panel-body">
 
-                  You are logged in as USER!
-              </div>
->>>>>>> parent of 0fbe177... run back
+                    Forums for general discussion
+                </div>
+            </div>
         </div>
     </div>
 </div>
