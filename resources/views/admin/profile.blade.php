@@ -1,28 +1,18 @@
-<<<<<<< HEAD
-@extends('layouts.forum')
-
-@section('content')
-<div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-=======
-@extends('layouts.userLayout')
+@extends('layouts.adminLayout')
 
 @section('content')
 <div class="Box" id = "box">
->>>>>>> parent of 0fbe177... run back
                 <div class="panel-heading">Profile</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/profile/update')}}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/profile/update')}}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                              <input name="id" type="hidden" value="{{$user->id}}">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" >
+                              <input name="id" type="hidden" value="{{$admin->id}}">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $admin->name }}" >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -36,7 +26,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $admin->email }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -46,23 +36,6 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-=======
-                        <div class="form-group{{ $errors->has('certification') ? ' has-error' : '' }}">
-                            <label for="certification" class="col-md-4 control-label">Certification</label>
-
-                            <div class="col-md-6">
-                                <input id="certification" type="text" class="form-control" name="certification" value="{{ $user->certification }}">
-
-                                @if ($errors->has('certification'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('certification') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
->>>>>>> parent of 0fbe177... run back
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -72,12 +45,5 @@
                         </div>
                     </form>
                 </div>
-<<<<<<< HEAD
-              </div>
-            </div>
-          </div>
-        </div>
-=======
 </div>
->>>>>>> parent of 0fbe177... run back
 @endsection

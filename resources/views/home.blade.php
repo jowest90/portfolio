@@ -1,9 +1,10 @@
-@extends('layouts.forum')
+@extends('layouts.userLayout')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+<<<<<<< HEAD
           <div class="panel panel-default">
 
     <div class="panel-heading"><b>Profile:</b> {{ Auth::user()->username }}
@@ -16,6 +17,19 @@
       <b>Email:</b> {{ Auth::user()->email }}<br>
     </div>
 </div>
+=======
+          <div class="panel-heading">Dashboard</div>
+
+              <div class="panel-body">
+                  @if (session('status'))
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
+                  @endif
+
+                  You are logged in as USER!
+              </div>
+>>>>>>> parent of 0fbe177... run back
         </div>
     </div>
 </div>

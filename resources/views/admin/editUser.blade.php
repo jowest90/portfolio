@@ -1,20 +1,10 @@
-<<<<<<< HEAD
-@extends('layouts.forum')
-
-@section('content')
-<div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-=======
-@extends('layouts.userLayout')
+@extends('layouts.adminLayout')
 
 @section('content')
 <div class="Box" id = "box">
->>>>>>> parent of 0fbe177... run back
-                <div class="panel-heading">Profile</div>
+                <div class="panel-heading">USER Profile</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/profile/update')}}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/editUser/update')}}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -46,8 +36,6 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-=======
                         <div class="form-group{{ $errors->has('certification') ? ' has-error' : '' }}">
                             <label for="certification" class="col-md-4 control-label">Certification</label>
 
@@ -62,7 +50,6 @@
                             </div>
                         </div>
 
->>>>>>> parent of 0fbe177... run back
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
@@ -72,12 +59,5 @@
                         </div>
                     </form>
                 </div>
-<<<<<<< HEAD
-              </div>
-            </div>
-          </div>
-        </div>
-=======
 </div>
->>>>>>> parent of 0fbe177... run back
 @endsection

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.adminLayout')
+=======
+@extends('layout.adminLayout')
+>>>>>>> parent of 0fbe177... run back
 @section('content')
 <div class="loginBox" id = "login box">
   <div class="panel-body">

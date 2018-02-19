@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.forum')
+=======
+@extends('layout.authLayout')
+>>>>>>> parent of 0fbe177... run back
 </style>
 @section('content')
   <div class="panel-body">

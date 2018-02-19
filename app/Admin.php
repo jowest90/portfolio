@@ -2,12 +2,20 @@
 
 namespace App;
 
+<<<<<<< HEAD
 use Illuminate\Notifications\Notifiable;
+=======
+
+>>>>>>> parent of 0fbe177... run back
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
+<<<<<<< HEAD
     use Notifiable;
+=======
+
+>>>>>>> parent of 0fbe177... run back
     protected $guard = 'admin';
 
     /**
@@ -27,4 +35,12 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+<<<<<<< HEAD
+=======
+
+  //   public function sendPasswordResetNotification($token)
+  // {
+  //     $this->notify(new AdminResetPasswordNotification($token));
+  // }
+>>>>>>> parent of 0fbe177... run back
 }
