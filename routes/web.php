@@ -11,6 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+//------------------------USER PAGES--------------------------------------------
+Route::prefix('/')->group(function(){
+    //User home page
+    Route::get('/', 'HomeController@index');
+
+    // //Profile settings
+    // Route::get('/profile/edit/{id}', "HomeController@edit");
+    // Route::post('/profile/update', "HomeController@update");
+
+    //Chat settings
+    Route::post('/chat','ChatController@sendMessage');
+    Route::get('/chat','ChatController@chatPage');
+  });
