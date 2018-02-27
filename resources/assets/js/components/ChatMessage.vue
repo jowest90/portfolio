@@ -2,8 +2,8 @@
   <div class="col-md-8 col-md-2">
       <div class="panel panel-default">
           <div class="panel-body">
-            <p>{{ message }}</p>
-            <small>{{ user }}</small>
+            <p>{{ message.message }}</p>
+            <small>{{ message.user }}</small>
           </div>
       </div>
   </div>
@@ -11,12 +11,7 @@
 
 <script>
 export default{
-  data(){
-    return{
-      message:"This is some message",
-      user: "John Doe"
-    }
-  }
+  props: ['message']
 }
 </script>
 

@@ -5,7 +5,7 @@
   <div class="col-md-2">
     <ul class="list-group">
     @foreach($users as $chatuser)
-        <li v-on:click="getUserId" class="list-group-item" id="{{ $chatuser->id }}" value="{{ $chatuser->name }}">{{ $chatuser->name }}</li>
+        <li class="list-group-item" id="{{ $chatuser->id }}" value="{{ $chatuser->name }}">{{ $chatuser->name }}</li>
     @endforeach
   </ul>
   </div>
@@ -14,9 +14,9 @@
   <div class="panel-heading">Chat Room</div>
 </div>
 </div>
-  <!-- <example-component></example-component> -->
-  <chat-message></chat-message>
-  <chat-log></chat-log>
-  <chat-composer></chat-composer>
+<chat-log :messages="messages"></chat-log>
+<div class="col-md-8 col-md-2">
+<chat-composer v-on:messagesent="addMessage"></chat-composer>
+</div>
 </div>
 @endsection
