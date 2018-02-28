@@ -1414,21 +1414,24 @@ Vue.component('chat-composer', __webpack_require__(55));
 var app = new Vue({
   el: '#app',
   data: {
-    messages: [{
-      message: "Hey!",
-      user: "John Doe"
-    }, {
-      message: "Hi there!",
-      user: "Joe Bob"
-    }]
+    messages: []
   },
   methods: {
     addMessage: function addMessage(message) {
       //Add to existing messages
       this.messages.push(message);
       //Persist to database
-      console.log("message added");
+      axios.post('/messages', message).then(function (response) {
+        // Do whatever;
+      });
     }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/messages').then(function (response) {
+      _this.messages = response.data;
+    });
   }
 });
 
@@ -43608,7 +43611,7 @@ var render = function() {
       _c("div", { staticClass: "panel-body" }, [
         _c("p", [_vm._v(_vm._s(_vm.message.message))]),
         _vm._v(" "),
-        _c("small", [_vm._v(_vm._s(_vm.message.user))])
+        _c("small", [_vm._v(_vm._s(_vm.message.user.name))])
       ])
     ])
   ])
@@ -43709,7 +43712,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.empty{\r\n  padding: 1rem;\r\n  text-align: center;\n}\r\n", ""]);
 
 // exports
 
@@ -43720,6 +43723,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -43742,9 +43746,28 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "chat-log" },
-    _vm._l(_vm.messages, function(message) {
-      return _c("chat-message", { attrs: { message: message } })
-    })
+    [
+      _vm._l(_vm.messages, function(message) {
+        return _c("chat-message", { attrs: { message: message } })
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.messages.length == 0,
+              expression: "messages.length ==0"
+            }
+          ],
+          staticClass: "empty"
+        },
+        [_vm._v("Nothing to see here!")]
+      )
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -43873,7 +43896,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     sendMessage: function sendMessage() {
       this.$emit('messagesent', {
         message: this.messageText,
-        user: "John Doe"
+        user: {
+          name: $('.navbar-right .dropdown-toggle').text()
+        }
       });
       this.messageText = '';
     }
