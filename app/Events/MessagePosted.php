@@ -13,7 +13,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class MessagePosted
+class MessagePosted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -49,6 +49,6 @@ class MessagePosted
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chatroom');
+        return new PresenceChannel('chatroom');
     }
 }
