@@ -1,19 +1,24 @@
 <template lang="html">
   <div class="chat-log">
-      <chat-message v-for="message in messages" :message="message"></chat-message>
-      <div class="empty" v-show="messages.length ==0">Nothing to see here!</div>
+      <chat-message v-for="message in messages" :message="message" :key="message.id"></chat-message>
+      <div class="empty" v-show="messages.length === 0">
+          Nothing here yet!
+      </div>
   </div>
 </template>
 
 <script>
-export default{
-props: ['messages']
+export default {
+    props: ['messages']
 }
 </script>
 
 <style lang="css">
-.empty{
-  padding: 1rem;
-  text-align: center;
+.chat-log .chat-message:nth-child(even) {
+    background-color: #ccc;
+}
+.empty {
+    padding: 1rem;
+    text-align: center;
 }
 </style>

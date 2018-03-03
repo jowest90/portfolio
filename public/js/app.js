@@ -43712,7 +43712,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.empty{\r\n  padding: 1rem;\r\n  text-align: center;\n}\r\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message:nth-child(even) {\n    background-color: #ccc;\n}\n.empty {\n    padding: 1rem;\n    text-align: center;\n}\n", ""]);
 
 // exports
 
@@ -43730,9 +43730,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['messages']
+    props: ['messages']
 });
 
 /***/ }),
@@ -43748,7 +43750,10 @@ var render = function() {
     { staticClass: "chat-log" },
     [
       _vm._l(_vm.messages, function(message) {
-        return _c("chat-message", { attrs: { message: message } })
+        return _c("chat-message", {
+          key: message.id,
+          attrs: { message: message }
+        })
       }),
       _vm._v(" "),
       _c(
@@ -43758,13 +43763,13 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.messages.length == 0,
-              expression: "messages.length ==0"
+              value: _vm.messages.length === 0,
+              expression: "messages.length === 0"
             }
           ],
           staticClass: "empty"
         },
-        [_vm._v("Nothing to see here!")]
+        [_vm._v("\n        Nothing here yet!\n    ")]
       )
     ],
     2
@@ -43866,7 +43871,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.chat-composer{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.chat-composer input{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: 1 auto;\r\n          flex: 1 auto;\n}\n.chat-composer button{\r\n  border-radius: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n.chat-composer{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.chat-composer input{\n  -webkit-box-flex: 1;\n      -ms-flex: 1 auto;\n          flex: 1 auto;\n}\n.chat-composer button{\n  border-radius: 0;\n}\n", ""]);
 
 // exports
 
