@@ -7,6 +7,21 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About My Project
+
+This project contains of applications I made for personal use and learn new things. This project contains:
+
+- Chat room
+- User Registration/password reset
+
+## Install Project
+
+- Must use PHP 7.0 or higher
+- Enter command: composer Install
+- Must install Node.js for Vue.js to work.
+- php artisan migrate to migrate tables
+- To populate User data, user php artisan tinker,factory('App\User',10)->create();, password to login is "secret".
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
