@@ -1,6 +1,6 @@
 <?php
 use App\Events\MessagePosted;
-use App\Student;
+// use App\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Route::prefix('/')->group(function(){
     Route::get('/chat','ChatController@chatPage');
   });
 
-  Route::get('/', function () {
-      $users = Student::all();
-      return view('data', ['users'=> $users]);
-  });
+  // Route::get('/', function () {
+  //     $users = Student::all();
+  //     return view('data', ['users'=> $users]);
+  // });
