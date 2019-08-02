@@ -14,7 +14,16 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome to my Portfolio!
+                    Here, you can view some of my latest as well as previous forms of work that I've done in the past. All porjects can be viewed on the tabs above the page.
+                    Enjoy your stay!
+
+                    -John W. West III
+
+                    Contact info:
+                    Email- jowest1990@gmail.com
+                    Skype- jowest1990@outlook.com
+                    Phone #- 618 402 2314
                 </div>
             </div>
         </div>
