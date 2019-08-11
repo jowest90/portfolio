@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Student::class, function (Faker $faker) {
+$factory->define(App\Data::class, function (Faker $faker) {
   return [
       'email' => $faker->unique()->safeEmail,
       'activated'=> $faker->randomElement(['Active', 'Inactive']),
