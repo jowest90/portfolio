@@ -34,6 +34,7 @@ Route::post('/messages', function () {
     return ['status' => 'OK'];
 })->middleware('auth');
 //------------------------USER PAGES--------------------------------------------
+
 Route::prefix('/')->group(function(){
     //User home page
     Route::get('/', 'HomeController@index');

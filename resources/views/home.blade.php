@@ -14,16 +14,18 @@
                         </div>
                     @endif
 
-                    Welcome to my Portfolio!
-                    Here, you can view some of my latest as well as previous forms of work that I've done in the past. All porjects can be viewed on the tabs above the page.
-                    Enjoy your stay!
-
-                    <p>-John W. West III</p>
-
-                    <p>Contact info:
-                    <p>Email- jowest1990@gmail.com</p>
-                    <p>Skype- jowest1990@outlook.com</p>
-                    <p>Phone #- 618 402 2314</p>
+                    <img src="{{ asset('/jpg/JWestProfile.jpg') }}" alt="Profile image">
+                      <p><font size="14px"><b>John W. West III</b></font></p>
+                      <p><font size="5px">PHP Web developer</font></p>
+                      @include('layouts.blocks.about')
+                      <p></p>
+                      @include('layouts.blocks.work')
+                      <p></p>
+                      @include('layouts.blocks.eduaction')
+                      <p></p>
+                      @include('layouts.blocks.certifications')
+                      <p></p>
+                      @include('layouts.blocks.contact')
                 </div>
             </div>
         </div>
