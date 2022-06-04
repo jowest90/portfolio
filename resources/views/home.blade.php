@@ -13,19 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <img src="{{ asset('/jpg/JWestProfile.jpg') }}" alt="Profile image">
-                      <p><font size="14px"><b>John W. West III</b></font></p>
-                      <p><font size="5px">PHP Web developer</font></p>
-                      @include('layouts.blocks.about')
-                      <p></p>
-                      @include('layouts.blocks.work')
-                      <p></p>
-                      @include('layouts.blocks.eduaction')
-                      <p></p>
-                      @include('layouts.blocks.certifications')
-                      <p></p>
-                      @include('layouts.blocks.contact')
                 </div>
             </div>
         </div>
