@@ -47,6 +47,35 @@ Route::prefix('/')->group(function(){
     Route::post('/chat','ChatController@sendMessage');
     Route::get('/chat','ChatController@chatPage');
   });
+/*
+--------------------------------------------------------------------------------
+*/
+
+
+/*
+--------------------------------------------------------------------------------
+*/
+
+  /*
+  Movie Appl;ication
+  */
+
+});
+
+Route::middleware(['auth', 'VerifyAdmin'])->group(function(){
+    Route::get('/management', function(){
+        return view('management.index');
+    });
+    //routes for management
+    Route::resource('management/category','Management\CategoryController');
+    Route::resource('management/menu','Management\MenuController');
+    Route::resource('management/table','Management\tableController');
+    Route::resource('management/user','Management\UserController');
+    //routes for report
+
+/*
+--------------------------------------------------------------------------------
+*/
 
   // Route::get('/', function () {
   //     $users = Student::all();
