@@ -80,7 +80,7 @@ Route::prefix('/')->group(function(){
 
   Route::middleware(['auth', 'VerifyAdmin'])->group(function(){
       Route::get('/management', function(){
-          return view('management.index');
+          return view('movie.management.index');
       });
       //routes for management
       Route::resource('management/category','Management\CategoryController');
