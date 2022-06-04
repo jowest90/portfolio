@@ -15,15 +15,15 @@
                     @endif
 
                     <div class="row text-center">
-
+                        @if(Auth::user()->checkAdmin())
                         <div class="col-sm-4">
                             <a href="/management">
                                 <h4>Managment</h4>
                                 <img width="50px" src="{{asset('images/management.svg')}}"/>
                             </a>
                         </div>
-
-
+                        @endif
+                        
                     </div>
                 </div>
             </div>
