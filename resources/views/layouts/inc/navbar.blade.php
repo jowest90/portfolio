@@ -7,12 +7,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">Portfolio</a>
+          <a href="/" class="navbar-brand">Portfolio</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{{ url('/') }}">Home</a></li>
-              <li><a href="{{ url('/chat') }}">Chat</a></li>
+            <li><a href="/home">App desc</a></li>
+              <li><a href="/chat">Chat</a></li>
               <li><a href="/movie">movie</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
