@@ -30,4 +30,9 @@ class HomeController extends Controller
     {
         return view('chat');
     }
+
+    public function movie()
+    {
+        return view('movie.home');
+    }
 }

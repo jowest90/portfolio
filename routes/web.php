@@ -38,6 +38,7 @@ Route::post('/messages', function () {
 Route::prefix('/')->group(function(){
     //User home page
     Route::get('/', 'HomeController@index');
+    Route::get('/movie', 'HomeController@movie');
 
     // //Profile settings
     // Route::get('/profile/edit/{id}', "HomeController@edit");
