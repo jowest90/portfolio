@@ -8,8 +8,8 @@ use App\Events\SendMessage;
 
 class MessageController extends Controller
 {
-    public function index($id){
-        $this->setRead($id);
+    public function index($id){       
+        $this->setRead($id);   
 
         $messages = Message::where( function($q) use ($id){
             $q->where('from_id', auth()->id());
@@ -35,7 +35,7 @@ class MessageController extends Controller
     }
 
     public function read($id){
-        $this->setRead($id);
+        $this->setRead($id);   
     }
 
     private function setRead($id){

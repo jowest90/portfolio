@@ -7,7 +7,7 @@ use App\User;
 
 class ContactController extends Controller
 {
-    public function index(){
+    public function index(){        
 
         $contacts = User::select('users.*', \DB::raw('count(messages.id) as unread'))
             ->leftJoin('messages', function($join){
@@ -17,7 +17,7 @@ class ContactController extends Controller
             })
             ->where('users.id', '!=', auth()->id())
             ->groupBy('users.id')
-            ->get();
+            ->get();          
 
         $contacts = $contacts->map( function($contact){
             $latest_message = $contact->getLatestMessage();
@@ -25,6 +25,6 @@ class ContactController extends Controller
             return $contact;
         });
 
-        return response()->json($contacts);
+        return response()->json($contacts);       
     }
 }
