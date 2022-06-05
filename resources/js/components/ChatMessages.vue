@@ -1,4 +1,4 @@
-// resources/js/components/ChatMessages.vue
+// resources/asset/js/components/ChatMessages.vue
 
 <template>
   <ul>
