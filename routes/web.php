@@ -38,8 +38,6 @@ Route::post('/messages', function () {
 Route::prefix('/')->group(function(){
     //User home page
     Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@home');
-    Route::get('/movie', 'HomeController@movie');
 
     // //Profile settings
     // Route::get('/profile/edit/{id}', "HomeController@edit");
@@ -49,50 +47,25 @@ Route::prefix('/')->group(function(){
     Route::post('/chat','ChatController@sendMessage');
     Route::get('/chat','ChatController@chatPage');
   });
-/*
---------------------------------------------------------------------------------
-*/
-
-
-/*
---------------------------------------------------------------------------------
-*/
 
   /*
-  Movie Appl;ication
+  Movie Application
+  DESC: An application that creates movie tickets to customers.
+  ------------------------------------------------------------------------------
   */
+  Route::get('/movie', function(){
+        return view('movie.index');
+    });
 
-  // routes for cashier
-  Route::get('/cashier', 'Cashier\CashierController@index');
-  Route::get('/cashier/getMenuByCategory/{category_id}', 'Cashier\CashierController@getMenuByCategory');
-  Route::get('/cashier/getTable', 'Cashier\CashierController@getTables');
-  Route::get('/cashier/getSaleDetailsByTable/{table_id}', 'Cashier\CashierController@getSaleDetailsByTable');
+    Route::get('/management', function(){
+        return view('movie.management.index');
+    });
 
-  Route::post('/cashier/orderFood', 'Cashier\CashierController@orderFood');
-  Route::post('/cashier/deleteSaleDetail', 'Cashier\CashierController@deleteSaleDetail');
-
-  Route::post('/cashier/confirmOrderStatus', 'Cashier\CashierController@confirmOrderStatus');
-  Route::post('/cashier/savePayment', 'Cashier\CashierController@savePayment');
-  Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
-
-  Route::get('/management', function(){
-      return view('management.index');
-  });
-  //routes for management
-  Route::resource('management/category','Management\CategoryController');
-  Route::resource('management/menu','Management\MenuController');
-  Route::resource('management/table','Management\TableController');
-  Route::resource('management/user','Management\UserController');
-  //routes for report
-
-  Route::get('/report', 'Report\ReportController@index');
-  Route::get('/report/show', 'Report\ReportController@show');
-
-  // Export to excel
-  Route::get('/report/show/export', 'Report\ReportController@export');
-/*
---------------------------------------------------------------------------------
-*/
+    //routes for management
+    Route::resource('movie/management/category','Management\CategoryController');
+    Route::resource('movie/management/menu','Management\MenuController');
+    Route::resource('movie/management/table','Management\tableController');
+    Route::resource('movie/management/user','Management\UserController');
 
   // Route::get('/', function () {
   //     $users = Student::all();

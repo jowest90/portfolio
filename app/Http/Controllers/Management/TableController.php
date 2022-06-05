@@ -16,7 +16,7 @@ class TableController extends Controller
     public function index()
     {
         $tables = Table::all();
-        return view('management.table')->with('tables', $tables);
+        return view('movie/management.table')->with('tables', $tables);
     }
 
     /**
@@ -26,7 +26,7 @@ class TableController extends Controller
      */
     public function create()
     {
-        return view('management.createTable');
+        return view('movie/management.createTable');
     }
 
     /**
@@ -42,7 +42,7 @@ class TableController extends Controller
         $table->name = $request->name;
         $table->save();
         $request->session()->flash('status','Table '. $request->name. ' is created successfully');
-        return redirect('management/table');
+        return redirect('movie/management/table');
 
     }
 
@@ -66,7 +66,7 @@ class TableController extends Controller
     public function edit($id)
     {
         $table = Table::find($id);
-        return view('management.editTable')->with('table', $table);
+        return view('movie.management.editTable')->with('table', $table);
     }
 
     /**
@@ -83,7 +83,7 @@ class TableController extends Controller
         $table->name = $request->name;
         $table->save();
         $request->session()->flash('status', 'The table is updated to '. $request->name. ' successfully');
-        return redirect('/management/table');
+        return redirect('/movie/management/table');
     }
 
     /**
@@ -96,6 +96,6 @@ class TableController extends Controller
     {
         Table::destroy($id);
         Session()->flash('status', 'The table is deleted successfully');
-        return redirect('/management/table');
+        return redirect('/movie/management/table');
     }
 }
