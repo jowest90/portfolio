@@ -1,45 +1,53 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use App\Events\MsgReadEvent;
+use App\Events\PrivateChatEvent;
+use App\Http\Resources\ChatResource;
+use App\Models\Session;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\User;
-use Auth;
-use App\Events\ChatMessage;
+
+
 class ChatController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function send(Session $session, Request $request)
     {
-        $this->middleware('auth');
-    }
-    /**
-     * Send chat message
-     * @param $request
-     * @return void
-     */
-    public function sendMessage(Request $request)
-    {
-
-        $this->validate($request, [
-        'userid' => 'required',
-        'message' => 'required',
+        $message = $session->messages()->create([
+            'content' => $request->message
         ]);
-        $message = [
-            "id" => $request->userid,
-            "sourceuserid" => Auth::user()->id,
-            "name" => Auth::user()->name,
-            "message" => $request->message
-        ];
-        event(new ChatMessage($message));
-        return "true";
-    }
-    public function chatPage()
-    {
 
-        $users = User::all();
-        return view('chat',['users'=> $users]);
+
+        $chat = $message->createForSend($session->id);
+
+        $message->createForReceive($session->id, $request->to_user);
+
+        broadcast(new PrivateChatEvent($message->content, $chat));
+
+        return response($chat->id, 200);
+    }
+
+    public function chats(Session $session)
+    {
+        return ChatResource::collection($session->chats->where('user_id', auth()->id()));
+
+    }
+
+    public function read(Session $session)
+    {
+        $chats = $session->chats->where('read_at', null)->where('type', 0)->where('user_id', '!=', auth()->id());
+
+        foreach ($chats as $chat) {
+            $chat->update(['read_at' => Carbon::now()]);
+            broadcast(new MsgReadEvent(new ChatResource($chat), $chat->session_id));
+        }
+    }
+
+    public function clear(Session $session)
+    {
+        $session->deleteChats();
+        $session->chats->count() == 0 ? $session->deleteMessages() : '';
+        return response('cleared', 200);
     }
 }
