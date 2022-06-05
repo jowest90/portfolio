@@ -4,6 +4,13 @@
 
 @section('content')
 <div class="container">
+  <div class="col-md-2">
+    <ul class="list-group">
+    @foreach($users as $chatuser)
+        <li class="list-group-item" id="{{ $chatuser->id }}" value="{{ $chatuser->name }}">{{ $chatuser->name }}</li>
+    @endforeach
+  </ul>
+  </div>
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">
