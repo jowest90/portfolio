@@ -14,9 +14,8 @@
   <div class="panel-heading">Chat Room</div>
 </div>
 </div>
-<chat-log :messages="messages"></chat-log>
-<div class="col-md-8 col-md-2">
-<chat-composer v-on:messagesent="addMessage"></chat-composer>
+<div id="app">
+     <main-component :user="{{ auth()->user() }}" logout-route="{{ route('logout') }}"></main-component>
 </div>
 </div>
 
