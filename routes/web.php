@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,13 +12,16 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes(['register' => true, 'reset' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/chat','ChatController@sendMessage');
-Route::get('/chat','ChatController@chatPage');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
+Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 
 Route::middleware(['auth'])->group(function(){
 
