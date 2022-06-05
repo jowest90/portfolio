@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <img src="{{ asset('/images/JWestProfile.jpg') }}" alt="Profile image">
+                    <img src="{{ asset('/jpg/JWestProfile.jpg') }}" alt="Profile image">
                       <p><font size="14px"><b>John W. West III</b></font></p>
                       <p><font size="5px">PHP Web developer</font></p>
                       @include('layouts.blocks.about')

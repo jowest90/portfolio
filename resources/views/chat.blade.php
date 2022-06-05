@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.userLayout')
 
 @section('content')
 <div class="container">
@@ -14,9 +14,9 @@
   <div class="panel-heading">Chat Room</div>
 </div>
 </div>
-<div id="app">
-     <main-component :user="{{ auth()->user() }}" logout-route="{{ route('logout') }}"></main-component>
+<chat-log :messages="messages"></chat-log>
+<div class="col-md-8 col-md-2">
+<chat-composer v-on:messagesent="addMessage"></chat-composer>
 </div>
 </div>
-
 @endsection

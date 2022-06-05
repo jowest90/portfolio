@@ -7,13 +7,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class="navbar-brand">Portfolio</a>
+          <a class="navbar-brand">Portfolio</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/home">App desc</a></li>
-              <li><a href="/chat">Chat</a></li>
-              <li><a href="/movie">movie</a></li>
+            <li><a href="{{ url('/') }}">Home</a></li>
+            <li><a href="{{ url('/chat') }}">Chat</a></li>
+            <li><a href="{{ url('/movie') }}">Movie App</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <!-- Authentication Links -->
