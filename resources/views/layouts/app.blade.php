@@ -24,8 +24,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="'/'">
+                    <i class="fas fa-utensils"></i>{{ config('Profile', 'Laravel') }}
+                </a>
+                <a class="navbar-brand" href="'/description'">
                     <i class="fas fa-utensils"></i>{{ config('app.name', 'Laravel') }}
+                </a>
+                <a class="navbar-brand" href="/chat">
+                    <i class="fas fa-utensils"></i>{{ config('Chat room', 'Laravel') }}
+                </a>
+                <a class="navbar-brand" href="'/customer'">
+                    <i class="fas fa-utensils"></i>{{ config('Customer.name', 'Laravel') }}
+                </a>
+                <a class="navbar-brand" href="'/employee'">
+                    <i class="fas fa-utensils"></i>{{ config('Employee.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

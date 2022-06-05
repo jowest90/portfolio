@@ -11,7 +11,16 @@
 |
 */
 Auth::routes();
-Route::get('/', 'HomeController@index');
+
+//------------------------DEFAULT PAGES--------------------------------------------
+Route::prefix('/')->group(function(){
+    //Welcome page
+    Route::get('/', 'HomeController@index');
+    Route::get('/description', 'HomeController@description');
+    Route::get('/chat', 'HomeController@chat');
+    Route::get('/customer', 'HomeController@customer');
+    Route::get('/employee', 'HomeController@employee');
+  });
 
 // Auth::routes(['register' => false, 'reset' => false]);
 
