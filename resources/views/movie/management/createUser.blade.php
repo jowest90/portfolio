@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('management.inc.sidebar')
+      @include('movie.management.inc.sidebar')
       <div class="col-md-8">
         <i class="fas fa-user"></i>Create a User
         <hr>
@@ -37,7 +37,7 @@
               <option value="cashier">Cashier</option>
             </select>
           </div>
-        
+
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>

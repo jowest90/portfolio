@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('management.inc.sidebar')
+      @include('movie.management.inc.sidebar')
       <div class="col-md-8">
         <i class="fas fa-hamburger"></i>Create a Menu
         <hr>
@@ -39,7 +39,7 @@
             </div>
             <div class="custom-file">
               <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
-              <label class="custom-file-label" for="inputGroupFile01">Choose File</label>            
+              <label class="custom-file-label" for="inputGroupFile01">Choose File</label>
             </div>
           </div>
 

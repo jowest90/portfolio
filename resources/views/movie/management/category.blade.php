@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('management.inc.sidebar')
+      @include('movie.management.inc.sidebar')
       <div class="col-md-8">
         <i class="fas fa-align-justify"></i>Category
         <a href="/management/category/create " class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Create Category</a>

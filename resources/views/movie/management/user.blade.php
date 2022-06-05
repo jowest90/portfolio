@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('management.inc.sidebar')
+      @include('movie.management.inc.sidebar')
       <div class="col-md-8">
         <i class="fas fa-users"></i> User
         <a href="/management/user/create" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Create User</a>
@@ -35,13 +35,13 @@
                 <td><a href="/management/user/{{$user->id}}/edit" class="btn btn-warning">Edit</a></td>
                 <td>
                   <form action="/management/user/{{$user->id}}" method="post">
-                    @csrf 
+                    @csrf
                     @method('DELETE')
                     <input type="submit" value="Delete" class="btn btn-danger">
                   </form>
                 </td>
               </tr>
-            @endforeach 
+            @endforeach
           </tbody>
         </table>
 

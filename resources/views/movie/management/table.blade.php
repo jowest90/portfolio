@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('management.inc.sidebar')
+      @include('movie.management.inc.sidebar')
       <div class="col-md-8">
         <i class="fas fa-chair"></i>Table
         <a href="/management/table/create " class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Create a Table</a>
@@ -35,7 +35,7 @@
                 </td>
                 <td>
                   <form action="/management/table/{{$table->id}}" method="post">
-                  @csrf 
+                  @csrf
                   @method('DELETE')
                   <input type="submit" value="Delete" class="btn btn-danger">
                   </form>
