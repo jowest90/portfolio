@@ -76,7 +76,7 @@ Route::prefix('/')->group(function(){
   Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
 
   Route::get('/management', function(){
-      return view('movie.management.index');
+      return view('management.index');
   });
   //routes for management
   Route::resource('management/category','Management\CategoryController');
