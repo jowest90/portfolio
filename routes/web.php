@@ -24,7 +24,7 @@ Route::prefix('/')->group(function(){
 
 // Auth::routes(['register' => false, 'reset' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function(){
 
