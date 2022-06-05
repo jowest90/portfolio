@@ -26,6 +26,12 @@ Route::prefix('/')->group(function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/contacts', 'ContactController@index');
+
+Route::get('/messages/{id}', 'MessageController@index');
+Route::post('/messages/send', 'MessageController@send');
+Route::get('/read/{id}', 'MessageController@read');
+
 Route::middleware(['auth'])->group(function(){
 
     // routes for cashier
