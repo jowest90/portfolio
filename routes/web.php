@@ -81,7 +81,7 @@ Route::prefix('/')->group(function(){
   //routes for management
   Route::resource('management/category','Management\CategoryController');
   Route::resource('management/menu','Management\MenuController');
-  Route::resource('management/table','Management\tableController');
+  Route::resource('management/table','Management\TableController');
   Route::resource('management/user','Management\UserController');
   //routes for report
 
