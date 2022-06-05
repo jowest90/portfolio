@@ -9,14 +9,15 @@
     @endforeach
   </ul>
   </div>
-  <div class="col-md-8 col-md-2">
-      <div class="panel panel-default">
-  <div class="panel-heading">Chat Room</div>
-</div>
-</div>
-<chat-log :messages="messages"></chat-log>
-<div class="col-md-8 col-md-2">
-<chat-composer v-on:messagesent="addMessage"></chat-composer>
+  <div class="card">
+        <div class="card-header">Chats</div>
+        <div class="card-body">
+            <chat-messages :messages="messages"></chat-messages>
+        </div>
+        <div class="card-footer">
+            <chat-form v-on:messagesent="addMessage" :user="{{ Auth::user() }}"></chat-form>
+        </div>
+    </div>
 </div>
 </div>
 @endsection
