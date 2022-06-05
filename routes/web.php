@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Auth::routes(['register' => false, 'reset' => false]);
+Auth::routes(['register' => true, 'reset' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/chat','ChatController@sendMessage');
