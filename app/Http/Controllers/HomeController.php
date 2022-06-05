@@ -25,19 +25,19 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
-    public function index()
+    public function description()
     {
         return view('description');
     }
-    public function index()
+    public function chat()
     {
         return view('chat');
     }
-    public function index()
+    public function customer()
     {
         return view('customer');
     }
-    public function index()
+    public function employee()
     {
         return view('employee');
     }
