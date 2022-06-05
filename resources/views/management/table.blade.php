@@ -35,7 +35,7 @@
                 </td>
                 <td>
                   <form action="/management/table/{{$table->id}}" method="post">
-                  @csrf
+                  @csrf 
                   @method('DELETE')
                   <input type="submit" value="Delete" class="btn btn-danger">
                   </form>

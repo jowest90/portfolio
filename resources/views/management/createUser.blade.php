@@ -37,7 +37,7 @@
               <option value="cashier">Cashier</option>
             </select>
           </div>
-
+        
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>

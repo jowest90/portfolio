@@ -17,7 +17,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('movie.management.menu')->with('menus', $menus);
+        return view('management.menu')->with('menus', $menus);
     }
 
     /**
@@ -28,7 +28,7 @@ class MenuController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('movie.management.createMenu')->with('categories', $categories);
+        return view('management.createMenu')->with('categories', $categories);
     }
 
     /**
@@ -64,7 +64,7 @@ class MenuController extends Controller
         $menu->category_id = $request->category_id;
         $menu->save();
         $request->session()->flash('status', $request->name. ' is saved successfully');
-        return redirect('/movie/management/menu');
+        return redirect('/management/menu');
     }
 
     /**
@@ -88,7 +88,7 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         $categories = Category::all();
-        return view('movie.management.editMenu')->with('menu',$menu)->with('categories',$categories);
+        return view('management.editMenu')->with('menu',$menu)->with('categories',$categories);
     }
 
     /**
@@ -129,7 +129,7 @@ class MenuController extends Controller
         $menu->category_id = $request->category_id;
         $menu->save();
         $request->session()->flash('status', $request->name. ' is updated successfully');
-        return redirect('/movie/management/menu');
+        return redirect('/management/menu');
 
 
     }
@@ -149,6 +149,6 @@ class MenuController extends Controller
         $menuName = $menu->name;
         $menu->delete();
         Session()->flash('status', $menuName. ' is deleted successfully');
-        return redirect('/movie/management/menu');
+        return redirect('/management/menu');
     }
 }

@@ -35,13 +35,13 @@
                 <td><a href="/management/user/{{$user->id}}/edit" class="btn btn-warning">Edit</a></td>
                 <td>
                   <form action="/management/user/{{$user->id}}" method="post">
-                    @csrf
+                    @csrf 
                     @method('DELETE')
                     <input type="submit" value="Delete" class="btn btn-danger">
                   </form>
                 </td>
               </tr>
-            @endforeach
+            @endforeach 
           </tbody>
         </table>
 

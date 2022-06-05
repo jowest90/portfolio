@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(5);
-        return view('movie.management.category')->with('categories', $categories);
+        return view('management.category')->with('categories', $categories);
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('movie.management.createCategory');
+        return view('management.createCategory');
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
         $request->session()->flash('status', $request->name. " is save successfully");
-        return(redirect('/movie/management/category'));
+        return(redirect('/management/category'));
 
         //
     }
@@ -69,7 +69,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('movie.management.editCategory')->with('category',$category);
+        return view('management.editCategory')->with('category',$category);
     }
 
     /**
@@ -88,7 +88,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->save();
         $request->session()->flash('status', $request->name. " is updated successfully");
-        return(redirect('/movie/management/category'));
+        return(redirect('/management/category'));
 
     }
 
@@ -102,6 +102,6 @@ class CategoryController extends Controller
     {
         Category::destroy($id);
         Session()->flash('status', 'The category is deleted successfully');
-        return redirect('/movie/management/category');
+        return redirect('/management/category');
     }
 }

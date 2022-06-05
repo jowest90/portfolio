@@ -1,6 +1,4 @@
 <?php
-use App\Events\MessagePosted;
-// use App\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,61 +11,43 @@ use App\Events\MessagePosted;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', 'HomeController@index');
 
-Auth::routes();
-//------------------------MESSAGES--------------------------------------------
-Route::get('/messages', function () {
-    return App\Message::with('user')->get();
-})->middleware('auth');
+Auth::routes(['register' => false, 'reset' => false]);
 
-Route::post('/messages', function () {
-  // Store the new message
-    $user = Auth::user();
-    $message = $user->messages()->create([
-        'message' => request()->get('message')
-    ]);
-    // Announce that a new message has been posted
-    broadcast(new MessagePosted($message, $user))->toOthers();
-    return ['status' => 'OK'];
-})->middleware('auth');
-//------------------------USER PAGES--------------------------------------------
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('/')->group(function(){
-    //User home page
-    Route::get('/', 'HomeController@index');
+Route::middleware(['auth'])->group(function(){
 
-    // //Profile settings
-    // Route::get('/profile/edit/{id}', "HomeController@edit");
-    // Route::post('/profile/update', "HomeController@update");
+    // routes for cashier
+    Route::get('/cashier', 'Cashier\CashierController@index');
+    Route::get('/cashier/getMenuByCategory/{category_id}', 'Cashier\CashierController@getMenuByCategory');
+    Route::get('/cashier/getTable', 'Cashier\CashierController@getTables');
+    Route::get('/cashier/getSaleDetailsByTable/{table_id}', 'Cashier\CashierController@getSaleDetailsByTable');
+    
+    Route::post('/cashier/orderFood', 'Cashier\CashierController@orderFood');
+    Route::post('/cashier/deleteSaleDetail', 'Cashier\CashierController@deleteSaleDetail');
+    
+    Route::post('/cashier/confirmOrderStatus', 'Cashier\CashierController@confirmOrderStatus');
+    Route::post('/cashier/savePayment', 'Cashier\CashierController@savePayment');
+    Route::get('/cashier/showReceipt/{saleID}', 'Cashier\CashierController@showReceipt');
+});
 
-    //Chat settings
-    Route::post('/chat','ChatController@sendMessage');
-    Route::get('/chat','ChatController@chatPage');
-  });
-
-  /*
-  Movie Application
-  DESC: An application that creates movie tickets to customers.
-  ------------------------------------------------------------------------------
-  */
-  Route::get('/movie', function(){
-        return view('movie.index');
-    });
-
+Route::middleware(['auth', 'VerifyAdmin'])->group(function(){
     Route::get('/management', function(){
-        return view('movie.management.index');
+        return view('management.index');
     });
-
     //routes for management
-    Route::resource('movie/management/category','Management\CategoryController');
-    Route::resource('movie/management/menu','Management\MenuController');
-    Route::resource('movie/management/table','Management\tableController');
-    Route::resource('movie/management/user','Management\UserController');
+    Route::resource('management/category','Management\CategoryController');
+    Route::resource('management/menu','Management\MenuController');
+    Route::resource('management/table','Management\tableController');
+    Route::resource('management/user','Management\UserController');
+    //routes for report
+    
+    Route::get('/report', 'Report\ReportController@index');
+    Route::get('/report/show', 'Report\ReportController@show');
+    
+    // Export to excel
+    Route::get('/report/show/export', 'Report\ReportController@export');
+});
 
-  // Route::get('/', function () {
-  //     $users = Student::all();
-  //     return view('data', ['users'=> $users]);
-  // });
