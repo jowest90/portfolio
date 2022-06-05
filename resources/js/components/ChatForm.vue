@@ -1,4 +1,4 @@
-// resources/js/components/ChatForm.vue
+// resources/assets/js/components/ChatForm.vue
 
 <template>
   <div class="input-group">
