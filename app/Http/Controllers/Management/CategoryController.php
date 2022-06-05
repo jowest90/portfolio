@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::paginate(5);
-        return view('movie.management.category')->with('categories', $categories);
+        return view('management.category')->with('categories', $categories);
     }
 
     /**
