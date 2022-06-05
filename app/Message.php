@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 
 class Message extends Model
 {
-    protected $guarded = [];
+  protected $fillable = ['message'];
 
-    public function user(){
-        return $this->hasOne(User::class, 'id', 'from_id');
-    }
+  public function user(){
+    return $this->belongsTo(User::class);
+  }
 }

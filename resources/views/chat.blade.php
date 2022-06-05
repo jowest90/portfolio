@@ -1,4 +1,4 @@
-@extends('layouts.userLayout')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -19,4 +19,5 @@
 <chat-composer v-on:messagesent="addMessage"></chat-composer>
 </div>
 </div>
+
 @endsection

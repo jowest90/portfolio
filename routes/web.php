@@ -1,4 +1,6 @@
 <?php
+use App\Events\MessagePosted;
+// use App\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,16 +13,61 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
+//------------------------MESSAGES--------------------------------------------
+Route::get('/messages', function () {
+    return App\Message::with('user')->get();
+})->middleware('auth');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/messages', function () {
+  // Store the new message
+    $user = Auth::user();
+    $message = $user->messages()->create([
+        'message' => request()->get('message')
+    ]);
+    // Announce that a new message has been posted
+    broadcast(new MessagePosted($message, $user))->toOthers();
+    return ['status' => 'OK'];
+})->middleware('auth');
+//------------------------USER PAGES--------------------------------------------
 
-Route::get('/contacts', 'ContactController@index');
+Route::prefix('/')->group(function(){
+    //User home page
+    Route::get('/', 'HomeController@index');
 
-Route::get('/messages/{id}', 'MessageController@index');
-Route::post('/messages/send', 'MessageController@send');
-Route::get('/read/{id}', 'MessageController@read');
+    // //Profile settings
+    // Route::get('/profile/edit/{id}', "HomeController@edit");
+    // Route::post('/profile/update', "HomeController@update");
+
+    //Chat settings
+    Route::post('/chat','ChatController@sendMessage');
+    Route::get('/chat','ChatController@chatPage');
+  });
+
+  /*
+  Movie Application
+  DESC: An application that creates movie tickets to customers.
+  ------------------------------------------------------------------------------
+  */
+  Route::get('/movie', function(){
+        return view('movie.index');
+    });
+
+    Route::get('/management', function(){
+        return view('movie.management.index');
+    });
+
+    //routes for management
+    Route::resource('movie/management/category','Management\CategoryController');
+    Route::resource('movie/management/menu','Management\MenuController');
+    Route::resource('movie/management/table','Management\tableController');
+    Route::resource('movie/management/user','Management\UserController');
+
+  // Route::get('/', function () {
+  //     $users = Student::all();
+  //     return view('data', ['users'=> $users]);
+  // });

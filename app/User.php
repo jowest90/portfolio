@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -16,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -28,26 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
-
-    public function getLatestMessage(){       
-
-        return Message::where( function($q){
-            $q->where('from_id', auth()->id());
-            $q->where('to_id', $this->id);
-        })->orWhere(function($q){
-            $q->where('from_id', $this->id);
-            $q->where('to_id', auth()->id());
-        })
-        ->orderBy('id', 'desc')
-        ->first();
-        
+    public function messages(){
+      return $this->hasMany(Message::class);
     }
 }
