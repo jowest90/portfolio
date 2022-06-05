@@ -51,7 +51,7 @@ class UserController extends Controller
         $user->role = $request->role;
         $user->save();
         $request->session()->flash('status', $request->name. ' is created successfully');
-        return redirect('/management/user');
+        return redirect('management/user');
     }
 
     /**
