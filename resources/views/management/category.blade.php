@@ -3,10 +3,10 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      @include('movie.management.inc.sidebar')
+      @include('management.inc.sidebar')
       <div class="col-md-8">
-        <i class="fas fa-chair"></i>Table
-        <a href="/management/table/create " class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Create a Table</a>
+        <i class="fas fa-align-justify"></i>Category
+        <a href="/management/category/create " class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Create Category</a>
         <hr>
         @if(Session()->has('status'))
           <div class="alert alert-success">
@@ -18,32 +18,31 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Table</th>
-              <th scope="col">Status</th>
+              <th scope="col">Category</th>
               <th scope="col">Edit</th>
               <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($tables as $table)
+            @foreach($categories as $category)
               <tr>
-                <td>{{$table->id}}</td>
-                <td>{{$table->name}}</td>
-                <td>{{$table->status}}</td>
+                <th scope="row">{{$category->id}}</th>
+                <td>{{$category->name}}</td>
                 <td>
-                  <a href="/management/table/{{$table->id}}/edit" class="btn btn-warning">Edit</a>
+                  <a href="/management/category/{{$category->id}}/edit" class="btn btn-warning">Edit</a>
                 </td>
                 <td>
-                  <form action="/management/table/{{$table->id}}" method="post">
+                <form action="/management/category/{{$category->id}}" method="post">
                   @csrf
                   @method('DELETE')
                   <input type="submit" value="Delete" class="btn btn-danger">
-                  </form>
+                </form>
                 </td>
               </tr>
             @endforeach
           </tbody>
         </table>
+        {{$categories->links()}}
       </div>
     </div>
   </div>

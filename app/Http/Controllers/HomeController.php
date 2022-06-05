@@ -38,6 +38,6 @@ class HomeController extends Controller
 
     public function movie()
     {
-        return view('movie.home');
+        return view('movie');
     }
 }
