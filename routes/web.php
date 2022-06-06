@@ -44,10 +44,10 @@ Route::middleware(['auth', 'VerifyAdmin'])->group(function(){
         return view('management.index');
     });
     //routes for management
-    Route::resource('management/category','Management\CategoryController');
-    Route::resource('management/menu','Management\MenuController');
-    Route::resource('management/table','Management\tableController');
-    Route::resource('management/user','Management\UserController');
+    Route::resource('management/category',[App\Http\Controllers\Management::class, 'CategoryController']);
+    Route::resource('management/menu',[App\Http\Controllers\Management::class, 'MenuController']);
+    Route::resource('management/table',[App\Http\Controllers\Management::class, 'TableController']);
+    Route::resource('management/user',[App\Http\Controllers\Management::class, 'UserController']);
     //routes for report
 
     Route::get('/report', 'Report\ReportController@index');
