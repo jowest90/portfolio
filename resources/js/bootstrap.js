@@ -39,3 +39,6 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: true
 });
+
+window.moment = require("moment");
+require("tempusdominus-bootstrap-4");
