@@ -3,7 +3,18 @@
 @extends('layouts.chatApp')
 
 @section('content')
-<div class="container">
+<div class="card">
+    <div class="card-header">Users</div>
+    <div class="card-body">
+      <div class="col-md-2">
+        <ul class="list-group">
+        @foreach($users as $chatuser)
+            <li class="list-group-item" id="{{ $chatuser->id }}" value="{{ $chatuser->name }}">{{ $chatuser->name }}</li>
+        @endforeach
+      </ul>
+      </div>
+    </div>
+</div>
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">

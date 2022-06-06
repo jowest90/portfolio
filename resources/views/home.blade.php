@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Applications') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,10 +13,13 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
+                    <p>Chat Room:</p>
+                    <p>Desc: An application to send messages from one person to another</p>
                     {{ __('You are logged in!') }}
                     <a href="{{ url('/chat') }}">Chat</a>
                     <p></p>
+                    <p>Restaurant Management System:</p>
+                    <p>Desc: A management application and creates food orders for customers</p>
                     <!-- Food App -->
                     <div class="row text-center">
                         <!-- management -->
