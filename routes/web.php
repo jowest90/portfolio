@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
         //routes for management
         Route::resource('management/category',[App\Http\Controllers\Management\CategoryController::class]);
         Route::resource('management/menu',[App\Http\Controllers\Management\MenuController::class]);
-        Route::resource('management/table',[App\Http\Controllers\Management\tableController::class];
+        Route::resource('management/table',[App\Http\Controllers\Management\tableController::class]);
         Route::resource('management/user',[App\Http\Controllers\Management\UserController::class]);
         //routes for report
 
