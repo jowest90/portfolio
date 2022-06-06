@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('management/table',App\Http\Controllers\Management\TableController::class);
         Route::resource('management/user',App\Http\Controllers\Management\UserController::class);
         // routes for cashier
-        Route::get('/cashier', App\Http\Controllers\Cashier\CashierController::class, 'index');
+        Route::get('/cashier', [App\Http\Controllers\Cashier\CashierController::class, 'index']);
         Route::get('/cashier/getMenuByCategory/{category_id}',[App\Http\Controllers\Cashier\CashierController::class, 'getMenuByCategory']);
         Route::get('/cashier/getTable',[App\Http\Controllers\Cashier\CashierController::class, 'getTables']);
         Route::get('/cashier/getSaleDetailsByTable/{table_id}',[App\Http\Controllers\Cashier\CashierController::class, 'getSaleDetailsByTable']);
