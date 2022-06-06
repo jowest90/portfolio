@@ -33,9 +33,7 @@
                 <td>{{$menu->id}}</td>
                 <td>{{$menu->name}}</td>
                 <td>{{$menu->price}}</td>
-                <td>
-                  <img src="{{asset('menu_images')}}/{{$menu->image}}" alt="{{$menu->name}}" width="120px" height="120px" class="img-thumbnail">
-                </td>
+      
                 <td>{{$menu->description}}</td>
                 <td>{{$menu->category->name}}</td>
                 <td><a href="/management/menu/{{$menu->id}}/edit" class="btn btn-warning">Edit</a></td>

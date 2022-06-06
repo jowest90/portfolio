@@ -45,16 +45,16 @@ class MenuController extends Controller
             'category_id' => 'required|numeric'
         ]);
         //if a user does not uploade an image, use noimge.png for the menu
-        $imageName = "noimage.png";
-
-        //if a user upload image
-        if($request->image){
-            $request->validate([
-                'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
-            ]);
-            $imageName = date('mdYHis').uniqid().'.'.$request->image->extension();
-            $request->image->move(public_path('menu_images'), $imageName);
-        }
+        // $imageName = "noimage.png";
+        //
+        // //if a user upload image
+        // if($request->image){
+        //     $request->validate([
+        //         'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
+        //     ]);
+        //     $imageName = date('mdYHis').uniqid().'.'.$request->image->extension();
+        //     $request->image->move(public_path('menu_images'), $imageName);
+        // }
         //save information to Menus table
         $menu = new Menu();
         $menu->name = $request->name;
@@ -108,19 +108,19 @@ class MenuController extends Controller
         ]);
         $menu = Menu::find($id);
         // validate if a user upload image
-        if($request->image){
-            $request->validate([
-                'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
-            ]);
-            if($menu->image != "noimage.png"){
-                $imageName = $menu->image;
-                unlink(public_path('menu_images').'/'.$imageName);
-            }
-            $imageName = date('mdYHis').uniqid().'.'.$request->image->extension();
-            $request->image->move(public_path('menu_images'), $imageName);
-        }else{
-            $imageName = $menu->image;
-        }
+        // if($request->image){
+        //     $request->validate([
+        //         'image' => 'nullable|file|image|mimes:jpeg,png,jpg|max:5000'
+        //     ]);
+        //     if($menu->image != "noimage.png"){
+        //         $imageName = $menu->image;
+        //         unlink(public_path('menu_images').'/'.$imageName);
+        //     }
+        //     $imageName = date('mdYHis').uniqid().'.'.$request->image->extension();
+        //     $request->image->move(public_path('menu_images'), $imageName);
+        // }else{
+        //     $imageName = $menu->image;
+        // }
 
         $menu->name = $request->name;
         $menu->price = $request->price;
@@ -143,9 +143,9 @@ class MenuController extends Controller
     public function destroy($id)
     {
         $menu = Menu::find($id);
-        if($menu->image != "noimage.png"){
-            unlink(public_path('menu_images/').$menu->image);
-        }
+        // if($menu->image != "noimage.png"){
+        //     unlink(public_path('menu_images/').$menu->image);
+        // }
         $menuName = $menu->name;
         $menu->delete();
         Session()->flash('status', $menuName. ' is deleted successfully');
