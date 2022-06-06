@@ -16,6 +16,7 @@
 
                     {{ __('You are logged in!') }}
                     <a href="{{ url('/chat') }}">Chat</a>
+                    <!-- management -->
                     <div class="row text-center">
                       <div class="col-sm-4">
                           <a href="/management">
@@ -24,6 +25,21 @@
                           </a>
                       </div>
                     </div>
+                    <!-- cashier -->
+                    <div class="col-sm-4">
+                            <a href="/cashier">
+                                <h4>Cashier</h4>
+                                <img width="50px" src="{{asset('images/cashier.svg')}}"/>
+                            </a>
+                        </div>
+                    <!-- report -->
+                    <div class="col-sm-4">
+                            <a href="/report">
+                                <h4>Report</h4>
+                                <img width="50px" src="{{asset('images/report.svg')}}"/>
+                            </a>
+                        </div>
+                    <!-- Modal -->
                 </div>
             </div>
         </div>
