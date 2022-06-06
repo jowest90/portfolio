@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function() {
         //routes for management
         Route::get('/management/category',[App\Http\Controllers\Management\CategoryController::class, 'index']);
         Route::get('/management/menu',[App\Http\Controllers\Management\MenuController::class, 'index']);
-        Route::get('/management/table',[App\Http\Controllers\Management\tableController::class, 'index'];
+        Route::get('/management/table',[App\Http\Controllers\Management\tableController::class, 'index']);
         Route::get('/management/user',[App\Http\Controllers\Management\UserController::class, 'index']);
         //routes for report
 
