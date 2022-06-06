@@ -144,7 +144,7 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         if($menu->image != "noimage.png"){
-            unlink(public_path('menu_images').'/'.$menu->image);
+            unlink(public_path('menu_images/').$menu->image);
         }
         $menuName = $menu->name;
         $menu->delete();
