@@ -32,16 +32,7 @@
             <span class="input-group-text">.00</span>
             </div>
           </div>
-          <label for="MenuImage">Image</label>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Upload</span>
-            </div>
-            <div class="custom-file">
-              <input type="file" name="image" class="custom-file-input" id="inputGroupFile01">
-              <label class="custom-file-label" for="inputGroupFile01">Choose File</label>
-            </div>
-          </div>
+          
 
           <div class="form-group">
             <label for="Description">Description</label>
