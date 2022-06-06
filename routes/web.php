@@ -12,15 +12,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Auth::routes(['register' => true, 'reset' => true]);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'chat']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
 
