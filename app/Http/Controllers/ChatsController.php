@@ -21,7 +21,7 @@ class ChatsController extends Controller
      */
     public function index()
     {
-        return view('chat')->with('user');
+        return view('chat')->withUsers($users);
     }
 
     /**
