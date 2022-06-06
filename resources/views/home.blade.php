@@ -13,6 +13,8 @@
                         {{ session('status') }}
                     </div>
                     @endif
+                    <p><b>Chat room:</b></p>
+                    <p>Desc: shows list of registered users and can interact with them by sending  a message</p>
                     {{ __('You are logged in!') }}
                     <a href="{{ url('/chat') }}">Chat</a>
                     <p></p>
