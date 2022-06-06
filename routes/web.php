@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth']], function() {
         return view('home');
     });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile']);
     Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
     Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
     Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
