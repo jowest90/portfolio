@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
 
 Auth::routes(['register' => false, 'reset' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -59,7 +59,7 @@ Route::middleware(['auth', 'VerifyAdmin'])->group(function(){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage']);
