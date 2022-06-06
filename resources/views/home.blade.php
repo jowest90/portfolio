@@ -16,7 +16,7 @@
                     {{ __('You are logged in!') }}
                     <a href="{{ url('/chat') }}">Chat</a>
                     <p></p>
-                    <p>Restaurant Management System:</p>
+                    <p><b>Restaurant Management System:</b></p>
                     <p>Desc: A management application and creates food orders for customers</p>
                     <!-- Food App -->
                     <div class="row text-center">

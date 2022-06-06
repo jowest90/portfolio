@@ -5,9 +5,8 @@
 @section('content')
 <div class="card">
     <div class="card-header">Users</div>
-    p>Chat Room:</p>
+    <p><b>Chat Room:</b></p>
     <p>Desc: An application to send messages from one person to another</p>
-</div>
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">
