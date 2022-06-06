@@ -8,7 +8,7 @@
     <div class="col-md-2">
         <ul class="list-group">
         @foreach($users as $user)
-            <li class="list-group-item" id="{{ $user->id }}" value="{{ $user->name }}">{{ $chatuser->name }}</li>
+            <li class="list-group-item" id="{{ $user->id }}" value="{{ $user->name }}">{{ $user->name }}</li>
         @endforeach
       </ul>
     </div>
