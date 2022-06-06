@@ -49,3 +49,4 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/report/show',[App\Http\Controllers\Report\ReportController::class, 'show']);
         // Export to excel
         Route::get('/report/show/export',[App\Exports\SaleReportExport::class, 'export']);
+});
