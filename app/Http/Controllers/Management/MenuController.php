@@ -59,7 +59,6 @@ class MenuController extends Controller
         $menu = new Menu();
         $menu->name = $request->name;
         $menu->price = $request->price;
-        $menu->image = $imageName;
         $menu->description = $request->description;
         $menu->category_id = $request->category_id;
         $menu->save();
