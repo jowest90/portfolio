@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Report;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Sale;
+use App\Sale;
 
 use App\Exports\SaleReportExport;
 use Maatwebsite\Excel\Facades\Excel;

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Menu;
+use App\Category;
+use App\Menu;
 
 class MenuController extends Controller
 {
