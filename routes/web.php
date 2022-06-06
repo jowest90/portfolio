@@ -28,10 +28,10 @@ Route::group(['middleware' => ['auth']], function() {
             return view('management.index');
         });
         //routes for management
-        Route::resource('management/category','Management\CategoryController');
-        Route::resource('management/menu','Management\MenuController');
-        Route::resource('management/table','Management\tableController');
-        Route::resource('management/user','Management\UserController');
+        Route::get('/management/category',[App\Http\Controllers\Management\CategoryController::class, 'index']);
+        Route::get('/management/menu',[App\Http\Controllers\Management\MenuController::class, 'index']);
+        Route::get('/management/table',[App\Http\Controllers\Management\tableController::class, 'index'];
+        Route::get('/management/user',[App\Http\Controllers\Management\UserController::class, 'index']);
         //routes for report
 
         Route::get('/report', 'Report\ReportController@index');
