@@ -5,8 +5,13 @@
 @section('content')
 <div class="card">
     <div class="card-header">Users</div>
-    <p><b>Chat Room:</b></p>
-    <p>Desc: An application to send messages from one person to another</p>
+    <div class="col-md-2">
+        <ul class="list-group">
+        @foreach($users as $user)
+            <li class="list-group-item" id="{{ $user->id }}" value="{{ $user->name }}">{{ $chatuser->name }}</li>
+        @endforeach
+      </ul>
+    </div>
     <div class="card">
         <div class="card-header">Chats</div>
         <div class="card-body">
