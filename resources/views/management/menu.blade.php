@@ -20,7 +20,6 @@
               <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Price</th>
-              <th scope="col">Picture</th>
               <th scope="col">Description</th>
               <th scope="col">Category</th>
               <th scope="col">Edit</th>
@@ -33,7 +32,6 @@
                 <td>{{$menu->id}}</td>
                 <td>{{$menu->name}}</td>
                 <td>{{$menu->price}}</td>
-      
                 <td>{{$menu->description}}</td>
                 <td>{{$menu->category->name}}</td>
                 <td><a href="/management/menu/{{$menu->id}}/edit" class="btn btn-warning">Edit</a></td>
