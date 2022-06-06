@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     // your routes
+    Route::get('/', function () {
+        return view('home');
+    });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index']);
     Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages']);
