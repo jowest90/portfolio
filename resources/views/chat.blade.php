@@ -8,8 +8,8 @@
     <div class="card-body">
       <div class="col-md-2">
         <ul class="list-group">
-        @foreach($users as $chatuser)
-            <li class="list-group-item" id="{{ $chatuser->id }}" value="{{ $chatuser->name }}">{{ $chatuser->name }}</li>
+        @foreach($users as $user)
+            <li class="list-group-item" id="{{ $user->id }}" value="{{ $user->name }}">{{ $chatuser->name }}</li>
         @endforeach
       </ul>
       </div>
