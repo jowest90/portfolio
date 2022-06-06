@@ -33,20 +33,20 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('management/table',App\Http\Controllers\Management\TableController::class);
         Route::resource('management/user',App\Http\Controllers\Management\UserController::class);
         // routes for cashier
-        Route::get('/cashier', [App\Http\Controllers\CashierController::class, 'index']);
-        Route::get('/cashier/getMenuByCategory/{category_id}',[App\Http\Controllers\CashierController::class, 'getMenuByCategory']);
-        Route::get('/cashier/getTable',[App\Http\Controllers\CashierController::class, 'getTables']);
-        Route::get('/cashier/getSaleDetailsByTable/{table_id}',[App\Http\Controllers\CashierController::class, 'getSaleDetailsByTable']);
+        Route::get('/cashier', [App\Http\Controllers\Cashier\CashierController::class, 'index']);
+        Route::get('/cashier/getMenuByCategory/{category_id}',[App\Http\Controllers\Cashier\CashierController::class, 'getMenuByCategory']);
+        Route::get('/cashier/getTable',[App\Http\Controllers\Cashier\CashierController::class, 'getTables']);
+        Route::get('/cashier/getSaleDetailsByTable/{table_id}',[App\Http\Controllers\Cashier\CashierController::class, 'getSaleDetailsByTable']);
 
-        Route::post('/cashier/orderFood',[App\Http\Controllers\CashierController::class, 'orderFood']);
-        Route::post('/cashier/deleteSaleDetail',[App\Http\Controllers\CashierController::class, 'deleteSaleDetail']);
+        Route::post('/cashier/orderFood',[App\Http\Controllers\Cashier\CashierController::class, 'orderFood']);
+        Route::post('/cashier/deleteSaleDetail',[App\Http\Controllers\Cashier\CashierController::class, 'deleteSaleDetail']);
 
-        Route::post('/cashier/confirmOrderStatus', [App\Http\Controllers\CashierController::class, 'confirmOrderStatus']);
-        Route::post('/cashier/savePayment',[App\Http\Controllers\CashierController::class, 'savePayment']);
-        Route::get('/cashier/showReceipt/{saleID}',[App\Http\Controllers\CashierController::class, 'showReceipt']);
+        Route::post('/cashier/confirmOrderStatus', [App\Http\Controllers\Cashier\CashierController::class, 'confirmOrderStatus']);
+        Route::post('/cashier/savePayment',[App\Http\Controllers\Cashier\CashierController::class, 'savePayment']);
+        Route::get('/cashier/showReceipt/{saleID}',[App\Http\Controllers\Cashier\CashierController::class, 'showReceipt']);
         //routes for report
-        Route::get('/report',[App\Http\Controllers\ReportController::class, 'index']);
-        Route::get('/report/show',[App\Http\Controllers\ReportController::class, 'show']);
+        Route::get('/report',[App\Http\Controllers\Report\ReportController::class, 'index']);
+        Route::get('/report/show',[App\Http\Controllers\Report\ReportController::class, 'show']);
         // Export to excel
-        Route::get('/report/show/export',[App\Http\Controllers\SaleReportExport::class, 'export']);
+        Route::get('/report/show/export',[App\Exports\SaleReportExport::class, 'export']);
 });
