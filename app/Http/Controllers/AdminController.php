@@ -3,77 +3,102 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Admin;
+
 class AdminController extends Controller
 {
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+     public function destroy(Request $request)
     {
-        $this->middleware('auth:admin');
-    }
+        Auth::guard('web')->logout();
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('admin.home');
-    }
+        $request->session()->invalidate();
 
-    public function ChangePassword()
-    {
-        return view('admin.auth.passwordchange');
-    }
+        $request->session()->regenerateToken();
 
-    public function Update_pass(Request $request)
-    {
-      $password=Auth::user()->password;
-      $oldpass=$request->oldpass;
-      $newpass=$request->password;
-      $confirm=$request->password_confirmation;
-      if (Hash::check($oldpass,$password)) {
-           if ($newpass === $confirm) {
-                      $user=Admin::find(Auth::id());
-                      $user->password=Hash::make($request->password);
-                      $user->save();
-                      Auth::logout();  
-                      $notification=array(
-                        'messege'=>'Password Changed Successfully ! Now Login with Your New Password',
-                        'alert-type'=>'success'
-                         );
-                       return Redirect()->route('admin.login')->with($notification); 
-                 }else{
-                     $notification=array(
-                        'messege'=>'New password and Confirm Password not matched!',
-                        'alert-type'=>'error'
-                         );
-                       return Redirect()->back()->with($notification);
-                 }     
-      }else{
-        $notification=array(
-                'messege'=>'Old Password not matched!',
-                'alert-type'=>'error'
-                 );
-               return Redirect()->back()->with($notification);
-      }
-    }
+        $notification = array(
+            'message' => 'User Logout Successfully', 
+            'alert-type' => 'success'
+        );
 
-    public function logout()
-    {
-        Auth::logout();
-            $notification=array(
-                'messege'=>'Successfully Logout',
-                'alert-type'=>'success'
-                 );
-             return Redirect()->route('admin.login')->with($notification);
-    }
+        return redirect('/login')->with($notification);
+    } // End Method 
+
+
+    public function Profile(){
+        $id = Auth::user()->id;
+        $adminData = User::find($id);
+        return view('admin.admin_profile_view',compact('adminData'));
+
+    }// End Method 
+
+
+    public function EditProfile(){
+
+        $id = Auth::user()->id;
+        $editData = User::find($id);
+        return view('admin.admin_profile_edit',compact('editData'));
+    }// End Method 
+
+    public function StoreProfile(Request $request){
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->username = $request->username;
+
+        if ($request->file('profile_image')) {
+           $file = $request->file('profile_image');
+
+           $filename = date('YmdHi').$file->getClientOriginalName();
+           $file->move(public_path('upload/admin_images'),$filename);
+           $data['profile_image'] = $filename;
+        }
+        $data->save();
+
+        $notification = array(
+            'message' => 'Admin Profile Updated Successfully', 
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('admin.profile')->with($notification);
+
+    }// End Method
+
+
+    public function ChangePassword(){
+
+        return view('admin.admin_change_password');
+
+    }// End Method
+
+
+    public function UpdatePassword(Request $request){
+
+        $validateData = $request->validate([
+            'oldpassword' => 'required',
+            'newpassword' => 'required',
+            'confirm_password' => 'required|same:newpassword',
+
+        ]);
+
+        $hashedPassword = Auth::user()->password;
+        if (Hash::check($request->oldpassword,$hashedPassword )) {
+            $users = User::find(Auth::id());
+            $users->password = bcrypt($request->newpassword);
+            $users->save();
+
+            session()->flash('message','Password Updated Successfully');
+            return redirect()->back();
+        } else{
+            session()->flash('message','Old password is not match');
+            return redirect()->back();
+        }
+
+    }// End Method
+
+
 
 }
+ 
