@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,18 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $sql = public_path('website.sql');
-
-        $db = [
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
-            'host' => env('DB_HOST'),
-            'database' => env('DB_DATABASE')
-        ];
-
-        exec("mysql --user={$db['username']} --password={$db['password']} --host={$db['host']} --database {$db['database']} < $sql");
-
-        \Log::info('SQL Import Done');
+        // $this->call(UsersTableSeeder::class);
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('12345678'),
+        ]);
     }
 }
